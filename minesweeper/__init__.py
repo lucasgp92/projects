@@ -189,8 +189,11 @@ def test_addknowledge4():
     ms = check50.py.import_("minesweeper.py")
     ai = ms.MinesweeperAI(height=4, width=5)
     ai.add_knowledge((0, 0), 3)
+    print(ai.mines)
     ai.mines.update({(0, 1), (1, 0), (1, 1)}) # just in case submission doesn't infer already
+    print(ai.mines)
     ai.add_knowledge((0, 2), 3)
+    print(ai.knowledge)
     s = ms.Sentence({(0, 3), (1, 2), (1, 3)}, 1)
     if s not in ai.knowledge:
         raise check50.Failure(f"did not find sentence {s}")
